@@ -1,0 +1,45 @@
+- project: LootCrate
+  loglevel: DEBUG
+  sequence:
+    keepgoing: false
+    strategy: node-first
+    commands:
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_transactions.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_adjustments.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_invoices.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_invoices_summary.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_subscriptions.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_billing_infos.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_export_accounts.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_product_extract.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_product_txt_stage.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_product_txt_cleanse.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_product_transform.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_product_publish.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_account_txt_stage.py.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_account_txt_cleanse.py.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_billing_info_txt_stage.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_billing_info_txt_cleanse.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_customer_transform.py
+    - scriptfile: /usr/local/bin/dodo.sh
+      args: recurly_customer_publish.py
+  description:
+  name: Recurly - Transactions
+  group: Recurly
